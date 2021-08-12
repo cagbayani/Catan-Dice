@@ -41,7 +41,7 @@ function reroll() {
 
     var sum = randomNumber2 + randomNumber1;
 
-    document.querySelector("h1").innerHTML = "You roll a " + sum;
+    document.querySelector("h1").innerHTML = "You rolled a " + sum;
 
     if(sum === 7){
         imageSelector = "images/yellowdice"+randomNumber1+".png";
@@ -51,8 +51,8 @@ function reroll() {
         image2.setAttribute("src", imageSelector2);
 
         document.querySelector("h1").innerHTML = "Move the Robber";
-    } else if (sum === 8){
-        document.querySelector("h1").innerHTML = "You roll an " + sum;
+    } else if (sum === 8 || sum === 11){
+        document.querySelector("h1").innerHTML = "You rolled an " + sum;
 
     }
 
