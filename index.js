@@ -43,6 +43,8 @@ function reroll() {
 
     document.querySelector("h1").innerHTML = "You rolled a " + sum;
 
+    $("body").css("background","#393E46");
+
     if(sum === 7){
         imageSelector = "images/yellowdice"+randomNumber1+".png";
         image1.setAttribute("src", imageSelector);
@@ -50,7 +52,10 @@ function reroll() {
         imageSelector2 = "images/yellowdice" + randomNumber2+".png";
         image2.setAttribute("src", imageSelector2);
 
+        $("body").css("background-image","url(images/drought.jpg)");
+        $("body").css("background-blend-mode","soft-light");
         document.querySelector("h1").innerHTML = "Move the Robber";
+
     } else if (sum === 8 || sum === 11){
         document.querySelector("h1").innerHTML = "You rolled an " + sum;
 
