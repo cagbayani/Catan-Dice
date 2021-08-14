@@ -1,41 +1,76 @@
 
+var diceImage = ["dice1.png", "dice2.png", "dice3.png", "dice4.png", "dice4.png", "dice5.png", "dice6.png"];
 
-var randomNumber1 = Math.floor((Math.random() * 6) + 1);
+document.querySelector("button").addEventListener("click", function () {
 
-var imageSelector = "images/dice" + randomNumber1 + ".png"; //image/dice1.png - dice6.png
+    var diceSound = new Audio('audio/diceSound.mp3');
 
-var image1 = document.querySelectorAll("img")[0];
+    setTimeout(function(){
+        diceSound.play();
+    },500);
+    
+    var sec = 100;
 
-image1.setAttribute("src", imageSelector);
+    for (i = 0; i < 40; i++) {
 
-var randomNumber2 = Math.floor((Math.random() * 6) + 1);
+        setTimeout(function () {
+            reroll();
+            reroll();
+        }, sec);
+        sec = sec + 50;
+        console.log(sec);
+    }
 
-var image2 = document.querySelectorAll("img")[1];
+    // slow down roll 
+    setTimeout(function () {
+        reroll();
+    }, 1200);
 
-var imageSelector2 = "images/dice" + randomNumber2 + ".png";
+    setTimeout(function () {
+        reroll();
+    }, 1400);
 
-image2.setAttribute("src", imageSelector2);
+    setTimeout(function () {
+        reroll();
+    }, 1600);
 
-document.querySelector("button").addEventListener("click", reroll);
+    setTimeout(function () {
+        reroll();
+    }, 1800);
 
+    setTimeout(function () {
+        reroll();
+    }, 2500);
+
+    setTimeout(function () {
+        reroll();
+    }, 2900);
+
+    setTimeout(function () {
+        reroll();
+    }, 3000);
+
+    
+
+});
 
 function reroll() {
 
     document.querySelector("button").innerHTML = "Reroll Dice"
 
-    randomNumber1 = Math.floor((Math.random() * 6) + 1);
+    var randomNumber1 = Math.floor((Math.random() * 6) + 1);
 
-    imageSelector = "images/dice" + randomNumber1 + ".png"; //image/dice1.png - dice6.png
+    var imageSelector = "images/dice" + randomNumber1 + ".png"; //image/dice1.png - dice6.png
 
-    image1 = document.querySelectorAll("img")[0];
+    var image1 = document.querySelectorAll("img")[0];
 
     image1.setAttribute("src", imageSelector);
 
-    randomNumber2 = Math.floor((Math.random() * 6) + 1);
+    var randomNumber2 = Math.floor((Math.random() * 6) + 1);
 
-    image2 = document.querySelectorAll("img")[1];
+    var image2 = document.querySelectorAll("img")[1];
 
-    imageSelector2 = "images/dice" + randomNumber2 + ".png";
+    var imageSelector2 = "images/dice" + randomNumber2 + ".png";
 
     image2.setAttribute("src", imageSelector2);
 
@@ -43,20 +78,20 @@ function reroll() {
 
     document.querySelector("h1").innerHTML = "You rolled a " + sum;
 
-    $("body").css("background","#393E46");
+    $("body").css("background", "#393E46");
 
-    if(sum === 7){
-        imageSelector = "images/yellowdice"+randomNumber1+".png";
+    if (sum === 7) {
+        imageSelector = "images/yellowdice" + randomNumber1 + ".png";
         image1.setAttribute("src", imageSelector);
 
-        imageSelector2 = "images/yellowdice" + randomNumber2+".png";
+        imageSelector2 = "images/yellowdice" + randomNumber2 + ".png";
         image2.setAttribute("src", imageSelector2);
 
-        $("body").css("background-image","url(images/drought.jpg)");
-        $("body").css("background-blend-mode","soft-light");
+        $("body").css("background-image", "url(images/drought.jpg)");
+        $("body").css("background-blend-mode", "soft-light");
         document.querySelector("h1").innerHTML = "Move the Robber";
 
-    } else if (sum === 8 || sum === 11){
+    } else if (sum === 8 || sum === 11) {
         document.querySelector("h1").innerHTML = "You rolled an " + sum;
 
     }
